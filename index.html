@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>InsightPro · Premium Surveys</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo">
+        <i class="fas fa-chart-simple"></i>
+        <span>InsightPro</span>
+      </div>
+      <div class="badge" id="headerBadge">
+        <i class="fas fa-lock"></i> full survey · premium
+      </div>
+    </header>
+
+    <div class="main-content">
+      <!-- LEFT: Survey preview -->
+      <div class="survey-section">
+        <div>
+          <h1 class="survey-title">Product feedback <span>2025</span></h1>
+          <div class="survey-meta">
+            <span><i class="fas fa-clock"></i> ~8 min</span>
+            <span><i class="fas fa-users"></i> 2,480 responses</span>
+            <span><i class="fas fa-star"></i> 4.8</span>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-number">Question 1 of 12</div>
+          <div class="q-text">How often do you use our mobile app?</div>
+          <div class="options">
+            <div class="option-item"><i class="far fa-circle"></i> Multiple times a day</div>
+            <div class="option-item"><i class="far fa-circle"></i> Once a day</div>
+            <div class="option-item"><i class="far fa-circle"></i> A few times a week</div>
+          </div>
+        </div>
+
+        <div class="question-card" style="background:#ffffff;">
+          <div class="q-number">Question 2 of 12</div>
+          <div class="q-text">What feature would you improve?</div>
+          <div class="options" id="lockedOptions">
+            <div class="option-item locked" data-option="ui">
+              <i class="fas fa-lock"></i> User interface
+              <span class="locked-message"><i class="fas fa-lock"></i> paywalled</span>
+            </div>
+            <div class="option-item locked" data-option="perf">
+              <i class="fas fa-lock"></i> Performance & speed
+              <span class="locked-message"><i class="fas fa-lock"></i> paywalled</span>
+            </div>
+            <div class="option-item locked" data-option="support">
+              <i class="fas fa-lock"></i> Customer support
+              <span class="locked-message"><i class="fas fa-lock"></i> paywalled</span>
+            </div>
+          </div>
+          <div id="lockNotice" style="font-size:.8rem;margin-top:1rem;color:#5f6c7e;display:flex;align-items:center;gap:.4rem;">
+            <i class="fas fa-lock" style="color:#1e5f9e;"></i>
+            <span>Unlock all 12 questions with full access</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Auth / Paywall -->
+      <div class="access-panel">
+        <div class="panel-card">
+          <!-- SIGNUP -->
+          <div id="signupSection" class="signup-section">
+            <div class="panel-title"><i class="fas fa-user-plus"></i> Create account</div>
+            <div class="panel-sub">Sign up to start the survey. Then unlock full access.</div>
+            <form id="signupForm" class="signup-form">
+              <div class="input-group">
+                <label>Full name</label>
+                <input type="text" id="fullName" placeholder="Alex Rivera" required />
+              </div>
+              <div class="input-group">
+                <label>Email address</label>
+                <input type="email" id="email" placeholder="alex@example.com" required />
+              </div>
+              <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="••••••••" minlength="6" required />
+              </div>
+              <button type="submit" class="btn-primary">
+                <i class="fas fa-arrow-right"></i> Sign up & continue
+              </button>
+            </form>
+            <div id="signupError" class="form-error" style="display:none;"></div>
+          </div>
+
+          <!-- PAYWALL -->
+          <div id="paywallSection" class="paywall-section">
+            <div class="panel-title"><i class="fas fa-lock"></i> Unlock full survey</div>
+            <div class="panel-sub">Pay via M-Pesa to access all questions and analytics.</div>
+
+            <div class="till-box">
+              <div class="till-label"><i class="fas fa-store"></i> Till number</div>
+              <div class="till-number" id="tillDisplay">—</div>
+            </div>
+
+            <form id="paymentForm" class="payment-form">
+              <div class="input-group">
+                <label>Phone number (M-Pesa)</label>
+                <input type="tel" id="phoneNumber" placeholder="0712 345 678" required />
+              </div>
+              <div class="input-group">
+                <label>M-Pesa PIN</label>
+                <input type="password" id="mpesaPin" placeholder="••••" maxlength="4" minlength="4" required />
+              </div>
+              <button type="submit" class="btn-primary pay-btn" id="payBtn">
+                <i class="fas fa-mobile-alt"></i> Pay & unlock survey
+              </button>
+            </form>
+
+            <div id="paymentSuccess" class="success-badge">
+              <i class="fas fa-check-circle"></i> Payment successful — full access unlocked!
+            </div>
+            <div id="paymentError" class="form-error" style="display:none;"></div>
+            <div class="back-link" id="backToSignup"><i class="fas fa-arrow-left"></i> Back to sign up</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      <i class="fas fa-shield-alt"></i> Secure payment · your data is encrypted
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
