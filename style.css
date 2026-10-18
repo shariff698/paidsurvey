@@ -1,0 +1,168 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f8fafc;
+  color: #0b1b2f;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.app-container {
+  max-width: 1100px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,.15), 0 0 0 1px rgba(0,0,0,.02);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  padding: 1.75rem 2rem 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.logo { display: flex; align-items: center; gap: .6rem; font-weight: 700; font-size: 1.5rem; letter-spacing: -.02em; color: #0b1b2f; }
+.logo i { color: #1e5f9e; font-size: 1.9rem; }
+
+.badge {
+  background: #eef6ff; color: #1e5f9e; font-weight: 600; font-size: .8rem;
+  padding: .35rem .9rem; border-radius: 40px; display: flex; align-items: center;
+  gap: .4rem; border: 1px solid #d4e6fa;
+}
+
+.main-content {
+  padding: 2rem 2rem 2.5rem 2rem;
+  display: grid;
+  grid-template-columns: 1.2fr .9fr;
+  gap: 2rem;
+}
+
+.survey-section { display: flex; flex-direction: column; gap: 1.75rem; }
+
+.survey-title { font-size: 1.8rem; font-weight: 700; letter-spacing: -.03em; line-height: 1.2; }
+.survey-title span { color: #1e5f9e; }
+
+.survey-meta { display: flex; gap: 1.5rem; font-size: .9rem; color: #5f6c7e; }
+.survey-meta i { margin-right: .35rem; color: #1e5f9e; }
+
+.question-card {
+  background: #f9fcff;
+  border-radius: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid #dfe9f2;
+  box-shadow: 0 4px 10px rgba(0,0,0,.02);
+  transition: all .15s ease;
+}
+
+.q-number { font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: #1e5f9e; margin-bottom: .6rem; }
+.q-text { font-weight: 600; font-size: 1.2rem; margin-bottom: 1.25rem; }
+.options { display: flex; flex-direction: column; gap: .75rem; }
+
+.option-item {
+  display: flex; align-items: center; gap: .9rem;
+  background: #fff; border: 1px solid #dde7f0; border-radius: 60px;
+  padding: .8rem 1.2rem; font-weight: 500; color: #1e2e44;
+  cursor: pointer; transition: all .12s ease; user-select: none;
+}
+.option-item:hover { border-color: #1e5f9e; background: #f2f9ff; }
+.option-item i { color: #1e5f9e; width: 1.25rem; text-align: center; }
+
+.option-item.locked { background: #f5f8fc; color: #7b8a9c; border-color: #e6edf5; cursor: not-allowed; opacity: .8; }
+.option-item.locked i { color: #9aa9bb; }
+.option-item.locked:hover { border-color: #e6edf5; background: #f5f8fc; }
+.locked-message { font-size: .8rem; margin-left: auto; color: #b0c0d0; }
+
+.access-panel { background: #fff; border-radius: 2rem; padding: .25rem; }
+.panel-card {
+  background: #f9fcff; border-radius: 1.8rem; padding: 1.8rem 1.6rem;
+  border: 1px solid #dfe9f2; box-shadow: 0 8px 20px -6px rgba(0,40,80,.08);
+}
+
+.panel-title { font-size: 1.25rem; font-weight: 700; margin-bottom: .5rem; display: flex; align-items: center; gap: .5rem; }
+.panel-title i { color: #1e5f9e; }
+.panel-sub { font-size: .9rem; color: #5f6c7e; margin-bottom: 1.5rem; }
+
+.signup-form, .payment-form { display: flex; flex-direction: column; gap: 1rem; }
+.input-group { display: flex; flex-direction: column; gap: .4rem; }
+.input-group label { font-size: .8rem; font-weight: 600; color: #1e2e44; letter-spacing: .02em; }
+.input-group input {
+  padding: .9rem 1.2rem; border-radius: 60px; border: 1.5px solid #dde7f0;
+  font-family: 'Inter', sans-serif; font-size: .95rem; background: #fff;
+  transition: .15s; outline: none;
+}
+.input-group input:focus { border-color: #1e5f9e; box-shadow: 0 0 0 3px rgba(30,95,158,.15); }
+
+.btn-primary {
+  background: #1e5f9e; border: none; color: #fff; font-weight: 600;
+  font-size: 1rem; padding: 1rem 1.5rem; border-radius: 60px;
+  display: flex; align-items: center; justify-content: center; gap: .6rem;
+  cursor: pointer; transition: .15s;
+  box-shadow: 0 8px 18px -8px rgba(30,95,158,.6); margin-top: .25rem;
+}
+.btn-primary:hover { background: #154a7a; transform: scale(1.01); }
+.btn-primary:active { transform: scale(.99); }
+.btn-primary:disabled { opacity: .7; cursor: wait; }
+
+.paywall-section { display: none; flex-direction: column; gap: 1.25rem; }
+.paywall-section.active { display: flex; }
+.signup-section.hidden { display: none; }
+
+.till-box {
+  background: #f2f9ff; border-radius: 1.5rem;
+  border: 1.5px dashed #1e5f9e; padding: 1rem 1.2rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.till-label { font-size: .85rem; font-weight: 600; color: #1e5f9e; text-transform: uppercase; letter-spacing: .05em; display: flex; align-items: center; gap: .35rem; }
+.till-number { font-weight: 800; font-size: 1.5rem; color: #0b1b2f; letter-spacing: .05em; }
+.till-number small { font-size: .75rem; font-weight: 500; color: #5f6c7e; margin-left: .25rem; }
+
+.pay-btn { background: #0f3b5c; box-shadow: 0 8px 18px -8px rgba(15,59,92,.7); }
+.pay-btn:hover { background: #0a2e47; }
+
+.success-badge {
+  display: none; background: #dcfce7; border: 1px solid #a7f3d0;
+  color: #166534; padding: .8rem 1rem; border-radius: 60px;
+  font-weight: 600; font-size: .9rem; text-align: center;
+  align-items: center; justify-content: center; gap: .5rem;
+}
+.success-badge.show { display: flex; }
+
+.form-error {
+  background: #fee2e2; color: #991b1b; border: 1px solid #fecaca;
+  border-radius: 12px; padding: .6rem .9rem; font-size: .85rem;
+}
+
+.back-link { font-size: .85rem; color: #5f6c7e; text-align: center; margin-top: .5rem; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.back-link:hover { color: #1e5f9e; }
+
+.footer-note {
+  padding: 1.2rem 2rem 2rem 2rem; font-size: .8rem; color: #8a9aa8;
+  display: flex; align-items: center; gap: .5rem;
+  border-top: 1px solid #eef2f6;
+}
+.footer-note i { color: #1e5f9e; }
+
+@media (max-width: 800px) {
+  body { padding: .8rem; }
+  .main-content { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem; }
+  .app-header { padding: 1.25rem 1.5rem; }
+  .survey-title { font-size: 1.5rem; }
+  .footer-note { padding: 0 1.5rem 1.5rem 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .app-container { border-radius: 1.8rem; }
+  .question-card { padding: 1.2rem; }
+  .option-item { padding: .7rem 1rem; font-size: .9rem; }
+  .till-number { font-size: 1.2rem; }
+}
